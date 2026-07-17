@@ -1568,7 +1568,39 @@ button, input, select, textarea {
 }
 
 /* --------------------------------------------------------------------------
-   11. Animations on Scroll (Intersection Observer)
+   11. Assistant Modal & UI Enhancements
+   -------------------------------------------------------------------------- */
+#assistantFab:hover {
+    transform: translateY(-3px);
+    background-color: #aa895d;
+}
+
+#assistantModal .assistant-panel {
+    width: min(92vw, 36rem);
+    margin-top: 2rem;
+}
+
+.assistant-option {
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-text);
+    background-color: transparent;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.assistant-option:hover,
+.assistant-option.active {
+    border-color: var(--color-primary-dark);
+    background-color: var(--color-primary-dark);
+    color: var(--color-white);
+}
+
+/* --------------------------------------------------------------------------
+   12. Animations on Scroll (Intersection Observer)
    -------------------------------------------------------------------------- */
 .reveal-on-scroll {
     opacity: 0;

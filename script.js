@@ -4,6 +4,15 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+    if (window.AOS) {
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 120,
+            easing: 'ease-out-cubic'
+        });
+    }
+
     /* ==========================================================================
        01. Header Scroll Effect
        ========================================================================== */
@@ -80,21 +89,43 @@ document.addEventListener('DOMContentLoaded', () => {
        ========================================================================== */
     const revealElements = document.querySelectorAll('.reveal-on-scroll');
 
-    const revealObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('revealed');
-                observer.unobserve(entry.target); // Stop observing after animated
+    const revealElement = (element) => {
+        element.classList.add('revealed');
+    };
+
+    const revealOnScroll = () => {
+        const triggerPoint = window.innerHeight * 0.9;
+
+        revealElements.forEach(element => {
+            const rect = element.getBoundingClientRect();
+            if (rect.top < triggerPoint) {
+                revealElement(element);
             }
         });
-    }, {
-        threshold: 0.15,
-        rootMargin: '0px 0px -50px 0px'
-    });
+    };
 
-    revealElements.forEach(element => {
-        revealObserver.observe(element);
-    });
+    if ('IntersectionObserver' in window) {
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    revealElement(entry.target);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        revealElements.forEach(element => {
+            revealObserver.observe(element);
+        });
+    } else {
+        revealOnScroll();
+    }
+
+    window.addEventListener('scroll', revealOnScroll, { passive: true });
+    window.addEventListener('load', revealOnScroll);
 
 
     /* ==========================================================================
@@ -351,5 +382,114 @@ document.addEventListener('DOMContentLoaded', () => {
     resetFormBtn.addEventListener('click', () => {
         formSuccess.classList.remove('active');
     });
+
+
+    /* ==========================================================================
+       09. Assistant de planning interactif
+       ========================================================================== */
+    const assistantFab = document.getElementById('assistantFab');
+    const assistantModal = document.getElementById('assistantModal');
+    const closeAssistant = document.getElementById('closeAssistant');
+    const assistantGuestRange = document.getElementById('assistantGuestRange');
+    const assistantGuestValue = document.getElementById('assistantGuestValue');
+    const assistantEstimateBtn = document.getElementById('assistantEstimateBtn');
+    const assistantResult = document.getElementById('assistantResult');
+    const assistantIntroText = document.getElementById('assistantIntroText');
+    const assistantOptions = document.querySelectorAll('.assistant-option');
+
+    let selectedAssistantStyle = 'traditional';
+
+    const updateAssistantSelection = () => {
+        assistantOptions.forEach(button => {
+            const isActive = button.dataset.assistantOption === selectedAssistantStyle;
+            button.classList.toggle('active', isActive);
+        });
+    };
+
+    assistantOptions.forEach(button => {
+        button.addEventListener('click', () => {
+            selectedAssistantStyle = button.dataset.assistantOption;
+            updateAssistantSelection();
+
+            const messages = {
+                traditional: 'Votre mariage traditionnel mérite une scénographie élégante et raffinée, avec un grand soin porté à la reception et au déroulé de la journée.',
+                civil: 'Pour un mariage civil, nous recommandons un rythme sobre, lumineux et parfaitement orchestré pour une ambiance chaleureuse et fluide.',
+                destination: 'Pour une destination wedding, nous privilégions une organisation sans stress avec des prestataires locaux et une coordination internationale.'
+            };
+
+            assistantIntroText.textContent = messages[selectedAssistantStyle];
+        });
+    });
+
+    assistantGuestRange.addEventListener('input', () => {
+        assistantGuestValue.textContent = assistantGuestRange.value;
+    });
+
+    const openAssistantModal = () => {
+        assistantModal.style.display = 'flex';
+        assistantModal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+    };
+
+    const closeAssistantModal = () => {
+        assistantModal.style.display = 'none';
+        assistantModal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+    };
+
+    assistantFab.addEventListener('click', openAssistantModal);
+    closeAssistant.addEventListener('click', closeAssistantModal);
+    document.querySelector('[data-close-assistant]').addEventListener('click', closeAssistantModal);
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && assistantModal.style.display === 'flex') {
+            closeAssistantModal();
+        }
+    });
+
+    assistantEstimateBtn.addEventListener('click', () => {
+        const guests = Number(assistantGuestRange.value);
+        const baseBudgets = {
+            traditional: 14000,
+            civil: 9000,
+            destination: 22000
+        };
+
+        const recommendation = {
+            traditional: {
+                title: 'Formule Prestige',
+                description: 'Organisation complète avec scénographie florale et suivi de chaque détail jusqu’au grand soir.'
+            },
+            civil: {
+                title: 'Formule Élégante',
+                description: 'Coordination soignée et décoration minimaliste pour une cérémonie lumineuse et parfaitement organisée.'
+            },
+            destination: {
+                title: 'Formule À l’international',
+                description: 'Logistique internationale, sélection de prestataires locaux et planification sur mesure.'
+            }
+        };
+
+        const estimatedBudget = baseBudgets[selectedAssistantStyle] + guests * 140;
+        const currency = new Intl.NumberFormat('fr-FR', {
+            style: 'currency',
+            currency: 'EUR',
+            maximumFractionDigits: 0
+        });
+
+        assistantResult.innerHTML = `
+            <div class="rounded-2xl border border-[#ebdcd0] bg-[#fdfcfb] p-4">
+                <p class="text-sm font-semibold uppercase tracking-[0.2em] text-[#aa895d]">Suggestion</p>
+                <h4 class="mt-2 text-xl font-semibold text-[#1c1f22]">${recommendation[selectedAssistantStyle].title}</h4>
+                <p class="mt-2 text-sm leading-7 text-[#6e757c]">${recommendation[selectedAssistantStyle].description}</p>
+                <div class="mt-4 flex items-center justify-between border-t border-[#ebdcd0] pt-3">
+                    <span class="text-sm font-semibold uppercase tracking-[0.2em] text-[#6e757c]">Budget estimé</span>
+                    <span class="text-lg font-semibold text-[#aa895d]">${currency.format(estimatedBudget)}</span>
+                </div>
+            </div>
+        `;
+    });
+
+    updateAssistantSelection();
 
 });
