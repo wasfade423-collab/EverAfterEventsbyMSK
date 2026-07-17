@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ever After Events | Organisateur de Mariages de Luxe & Sur-mesure</title>
+    <meta name="description" content="Ever After Events conçoit et organise des mariages de luxe et sur-mesure. Confiez-nous le plus beau jour de votre vie pour une célébration inoubliable.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header / Navigation -->
+    <header class="main-header" id="header">
+        <div class="container header-container">
+            <a href="#hero" class="logo" id="logo">
+                <span class="logo-text">Ever After</span>
+                <span class="logo-subtext">Events</span>
+            </a>
+            
+            <nav class="nav-menu" id="navMenu">
+                <ul>
+                    <li><a href="#hero" class="nav-link active">Accueil</a></li>
+                    <li><a href="#a-propos" class="nav-link">À propos</a></li>
+                    <li><a href="#services" class="nav-link">Nos services</a></li>
+                    <li><a href="#galerie" class="nav-link">Galerie</a></li>
+                    <li><a href="#avis" class="nav-link">Avis</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <a href="#contact" class="btn btn-outline btn-sm hide-mobile">Estimer mon projet</a>
+                <button class="menu-toggle" id="menuToggle" aria-label="Ouvrir le menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Nav Overlay -->
+    <div class="mobile-nav-overlay" id="mobileOverlay">
+        <nav class="mobile-nav">
+            <ul>
+                <li><a href="#hero" class="mobile-nav-link">Accueil</a></li>
+                <li><a href="#a-propos" class="mobile-nav-link">À propos</a></li>
+                <li><a href="#services" class="mobile-nav-link">Nos services</a></li>
+                <li><a href="#galerie" class="mobile-nav-link">Galerie</a></li>
+                <li><a href="#avis" class="mobile-nav-link">Avis</a></li>
+                <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
+                <li><a href="#contact" class="mobile-nav-link btn btn-primary">Estimer mon projet</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <main>
+        <!-- 01 Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="hero-bg" style="background-image: url('assets/images/hero.png');"></div>
+            <div class="hero-overlay"></div>
+            <div class="container hero-container">
+                <div class="hero-content" id="heroContent">
+                    <span class="hero-subtitle">Créateurs de Mariages d'Exception</span>
+                    <h1 class="hero-title">L'art de rendre l'éphémère éternel</h1>
+                    <p class="hero-description">
+                        Ever After Events conçoit et coordonne des mariages uniques, élégants et raffinés. Nous transformons vos rêves les plus audacieux en souvenirs mémorables.
+                    </p>
+                    <div class="hero-actions-group">
+                        <a href="#services" class="btn btn-primary">Découvrir nos services</a>
+                        <a href="#contact" class="btn btn-secondary">Prendre rendez-vous</a>
+                    </div>
+                </div>
+                <div class="scroll-indicator">
+                    <a href="#a-propos" aria-label="Défiler vers le bas">
+                        <span class="mouse">
+                            <span class="wheel"></span>
+                        </span>
+                        <span class="arrow"></span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 02 À propos Section -->
+        <section id="a-propos" class="about-section section-padding">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-image-wrapper reveal-on-scroll">
+                        <div class="image-border-decor"></div>
+                        <img src="assets/images/about.png" alt="Scénographie de table par Ever After Events" class="about-img">
+                        <div class="about-badge">
+                            <span class="badge-number">10+</span>
+                            <span class="badge-text">Ans d'expérience</span>
+                        </div>
+                    </div>
+                    <div class="about-content-wrapper reveal-on-scroll delay-1">
+                        <span class="section-tag">Notre Histoire</span>
+                        <h2 class="section-title">L'équipe derrière vos plus beaux souvenirs</h2>
+                        <p class="section-subtitle">
+                            Fondée par trois passionnés de l'événementiel de luxe, <strong>Ever After Events (by MSK)</strong> est une agence dédiée à la création de mariages d'exception.
+                        </p>
+                        <p class="about-text">
+                            Notre philosophie repose sur l'écoute attentive de vos désirs, l'exigence du moindre détail et une créativité sans limites. Nous croyons que chaque couple a une histoire singulière qui mérite d'être racontée à travers une célébration sur-mesure.
+                        </p>
+                        <p class="about-text">
+                            De la recherche du lieu idéal à la scénographie florale, en passant par la gestion des prestataires et la coordination du jour J, nous vous accompagnons à chaque étape pour que vous puissiez vivre vos préparatifs en toute sérénité.
+                        </p>
+                        <div class="about-values">
+                            <div class="value-item">
+                                <div class="value-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499c-.105-.21-.302-.35-.53-.35a.525.525 0 0 0-.53.35L8.41 8.35l-5.352.776a.525.525 0 0 0-.291.89l3.873 3.775-.915 5.328a.525.525 0 0 0 .762.553L12 17.152l4.707 2.474a.525.525 0 0 0 .762-.553l-.915-5.328 3.873-3.775a.525.525 0 0 0-.291-.89L14.77 8.35l-2.29-4.851Z" /></svg>
+                                </div>
+                                <div class="value-info">
+                                    <h3>Excellence</h3>
+                                    <p>Une sélection rigoureuse des meilleurs prestataires et un souci permanent du détail.</p>
+                                </div>
+                            </div>
+                            <div class="value-item">
+                                <div class="value-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0 1 12 21 8.25 8.25 0 0 1 6.038 7.047 8.287 8.287 0 0 0 9 9.601a8.983 8.983 0 0 1 3.361-6.867 8.21 8.21 0 0 0 3 2.48Z" /><path stroke-linecap="round" stroke-linejoin="round" d="M12 18a3.75 3.75 0 0 0 .495-7.467 5.99 5.99 0 0 0-1.925 3.546 5.974 5.974 0 0 1-2.133-1A3.75 3.75 0 0 0 12 18Z" /></svg>
+                                </div>
+                                <div class="value-info">
+                                    <h3>Créativité</h3>
+                                    <p>Des scénographies uniques et personnalisées qui reflètent fidèlement votre personnalité.</p>
+                                </div>
+                            </div>
+                            <div class="value-item">
+                                <div class="value-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" /></svg>
+                                </div>
+                                <div class="value-info">
+                                    <h3>Sérénité</h3>
+                                    <p>Un accompagnement pas à pas pour vous libérer de tout stress et savourer l'instant présent.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 03 Nos services Section -->
+        <section id="services" class="services-section section-padding bg-light">
+            <div class="container">
+                <div class="section-header text-center reveal-on-scroll">
+                    <span class="section-tag">Prestations</span>
+                    <h2 class="section-title">Des formules adaptées à vos envies</h2>
+                    <p class="section-desc">Nous vous proposons différents niveaux d'accompagnement pour concrétiser votre vision de la journée idéale.</p>
+                </div>
+                
+                <div class="services-grid">
+                    <!-- Service 1 -->
+                    <div class="service-card reveal-on-scroll">
+                        <div class="service-icon-wrapper">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z" /></svg>
+                        </div>
+                        <h3 class="service-title">Organisation Complète</h3>
+                        <p class="service-description">
+                            De la recherche des prestataires à la coordination finale, nous gérons l'intégralité de vos préparatifs pour une sérénité absolue.
+                        </p>
+                        <ul class="service-features">
+                            <li>Recherche et sélection du lieu d'exception</li>
+                            <li>Gestion du budget et rétro-planning</li>
+                            <li>Recherche et négociation des prestataires</li>
+                            <li>Accompagnement illimité et présence le jour J</li>
+                        </ul>
+                        <div class="service-footer">
+                            <a href="#contact" class="btn btn-outline btn-full">Demander un devis</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Service 2 -->
+                    <div class="service-card featured reveal-on-scroll delay-1">
+                        <div class="service-badge">Plus populaire</div>
+                        <div class="service-icon-wrapper">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
+                        </div>
+                        <h3 class="service-title">Coordination Jour J</h3>
+                        <p class="service-description">
+                            Vous avez tout organisé mais souhaitez profiter pleinement de vos invités ? Nous reprenons les rênes un mois avant pour orchestrer la journée.
+                        </p>
+                        <ul class="service-features">
+                            <li>Prise de contact avec vos prestataires</li>
+                            <li>Élaboration du planning de la journée</li>
+                            <li>Gestion technique et logistique des imprévus</li>
+                            <li>Accueil et orientation des invités</li>
+                        </ul>
+                        <div class="service-footer">
+                            <a href="#contact" class="btn btn-primary btn-full">Demander un devis</a>
+                        </div>
+                    </div>
+
+                    <!-- Service 3 -->
+                    <div class="service-card reveal-on-scroll delay-2">
+                        <div class="service-icon-wrapper">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.53 16.122a3 3 0 0 0-2.22 4.583a3 3 0 0 0 4.227-4.227a3 3 0 0 0-2.007-.356Zm5.47-5.47a3 3 0 0 0-2.22 4.584a3 3 0 0 0 4.226-4.227a3 3 0 0 0-2.006-.357ZM20.25 5.772a3 3 0 0 0-2.22 4.583a3 3 0 0 0 4.227-4.227a3 3 0 0 0-2.007-.356Zm-11.72 9.17l8.47-8.47m-6.35 10.59l8.47-8.47m-6.35 10.59l8.47-8.47" /></svg>
+                        </div>
+                        <h3 class="service-title">Design & Scénographie</h3>
+                        <p class="service-description">
+                            Notre équipe artistique crée l'univers visuel de votre mariage : art de la table, décoration florale, papeterie et jeux de lumière.
+                        </p>
+                        <ul class="service-features">
+                            <li>Création d'un moodboard personnalisé</li>
+                            <li>Conception de la scénographie florale</li>
+                            <li>Sélection du mobilier et de l'art de la table</li>
+                            <li>Mise en place le jour J</li>
+                        </ul>
+                        <div class="service-footer">
+                            <a href="#contact" class="btn btn-outline btn-full">Demander un devis</a>
+                        </div>
+                    </div>
+
+                    <!-- Service 4 -->
+                    <div class="service-card reveal-on-scroll">
+                        <div class="service-icon-wrapper">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" /></svg>
+                        </div>
+                        <h3 class="service-title">Destination Wedding</h3>
+                        <p class="service-description">
+                            Que vous rêviez d'une plage en Grèce, d'une villa en Toscane ou d'un riad à Marrakech, nous organisons votre mariage à l'étranger.
+                        </p>
+                        <ul class="service-features">
+                            <li>Recherche de lieux à l'international</li>
+                            <li>Coordination des voyages et hébergements</li>
+                            <li>Gestion des prestataires locaux et douanes</li>
+                            <li>Traduction et démarches administratives</li>
+                        </ul>
+                        <div class="service-footer">
+                            <a href="#contact" class="btn btn-outline btn-full">Demander un devis</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 04 Galerie Section -->
+        <section id="galerie" class="gallery-section section-padding">
+            <div class="container">
+                <div class="section-header text-center reveal-on-scroll">
+                    <span class="section-tag">Portfolio</span>
+                    <h2 class="section-title">Nos plus belles réalisations</h2>
+                    <p class="section-desc">Laissez-vous inspirer par un aperçu des mariages uniques que nous avons eu le privilège d'organiser.</p>
+                </div>
+
+                <!-- Filter Tabs -->
+                <div class="gallery-filters reveal-on-scroll">
+                    <button class="filter-btn active" data-filter="all">Tous</button>
+                    <button class="filter-btn" data-filter="classic">Châteaux & Prestige</button>
+                    <button class="filter-btn" data-filter="nature">Forêts & Bohème</button>
+                    <button class="filter-btn" data-filter="beach">Plages & Tropiques</button>
+                </div>
+
+                <!-- Gallery Grid -->
+                <div class="gallery-grid" id="galleryGrid">
+                    <!-- Item 1 (Chateau/Classic - Hero image) -->
+                    <div class="gallery-item reveal-on-scroll classic" data-category="classic">
+                        <div class="gallery-img-container">
+                            <img src="assets/images/hero.png" alt="Mariage somptueux dans un château français">
+                            <div class="gallery-overlay">
+                                <div class="gallery-info">
+                                    <span class="gallery-category">Châteaux & Prestige</span>
+                                    <h4 class="gallery-title">Mariage d'Éléonore & Arthur</h4>
+                                </div>
+                                <div class="gallery-icon-view">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" /></svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 (Nature/Forest) -->
+                    <div class="gallery-item reveal-on-scroll nature" data-category="nature">
+                        <div class="gallery-img-container">
+                            <img src="assets/images/gallery_forest.png" alt="Célébration intimiste sous les bois">
+                            <div class="gallery-overlay">
+                                <div class="gallery-info">
+                                    <span class="gallery-category">Forêts & Bohème</span>
+                                    <h4 class="gallery-title">Mariage de Camille & Maxime</h4>
+                                </div>
+                                <div class="gallery-icon-view">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" /></svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 (Beach) -->
+                    <div class="gallery-item reveal-on-scroll beach" data-category="beach">
+                        <div class="gallery-img-container">
+                            <img src="assets/images/gallery_beach.png" alt="Dîner de mariage sur le sable au coucher de soleil">
+                            <div class="gallery-overlay">
+                                <div class="gallery-info">
+                                    <span class="gallery-category">Plages & Tropiques</span>
+                                    <h4 class="gallery-title">Mariage de Chloé & Thomas</h4>
+                                </div>
+                                <div class="gallery-icon-view">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" /></svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 4 (Classic/Ballroom) -->
+                    <div class="gallery-item reveal-on-scroll classic" data-category="classic">
+                        <div class="gallery-img-container">
+                            <img src="assets/images/gallery_ballroom.png" alt="Réception dans un somptueux salon historique">
+                            <div class="gallery-overlay">
+                                <div class="gallery-info">
+                                    <span class="gallery-category">Châteaux & Prestige</span>
+                                    <h4 class="gallery-title">Mariage de Victoria & Charles</h4>
+                                </div>
+                                <div class="gallery-icon-view">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" /></svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lightbox Modal -->
+        <div class="lightbox" id="lightbox">
+            <button class="lightbox-close" id="lightboxClose" aria-label="Fermer la galerie">&times;</button>
+            <button class="lightbox-prev" id="lightboxPrev" aria-label="Image précédente">&#10094;</button>
+            <button class="lightbox-next" id="lightboxNext" aria-label="Image suivante">&#10095;</button>
+            <div class="lightbox-content">
+                <img src="" alt="" id="lightboxImg">
+                <div class="lightbox-caption" id="lightboxCaption"></div>
+            </div>
+        </div>
+
+        <!-- 05 Avis clients Section -->
+        <section id="avis" class="testimonials-section section-padding bg-light">
+            <div class="container">
+                <div class="section-header text-center reveal-on-scroll">
+                    <span class="section-tag">Témoignages</span>
+                    <h2 class="section-title">Ce que disent nos mariés</h2>
+                    <p class="section-desc">Leur bonheur et leur satisfaction sont nos plus belles récompenses.</p>
+                </div>
+
+                <div class="testimonials-slider-container reveal-on-scroll">
+                    <div class="testimonials-slider" id="testimonialsSlider">
+                        <!-- Testimonial 1 -->
+                        <div class="testimonial-slide active">
+                            <div class="testimonial-card">
+                                <div class="quote-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M4.848 2.771A49.144 49.144 0 0 1 12 2.25c2.43 0 4.817.178 7.152.52 1.978.292 3.348 2.024 3.348 3.97v6.02c0 1.946-1.37 3.678-3.348 3.97a48.901 48.901 0 0 1-3.476.383.75.75 0 0 1-.66-.415l-1.844-3.687a.75.75 0 0 0-1.344 0L10.13 16.71a.75.75 0 0 1-.66.415 48.9 48.9 0 0 1-3.476-.383C4.017 16.45 2.65 14.718 2.65 12.77v-6.02c0-1.946 1.37-3.678 3.348-3.97ZM12 9a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0v-2.5A.75.75 0 0 1 12 9Zm-3.75.75a.75.75 0 0 1 .75-.75h.008a.75.75 0 0 1 .75.75v.008a.75.75 0 0 1-.75.75H9a.75.75 0 0 1-.75-.75v-.008Zm6.008-.75a.75.75 0 0 0-.75.75v.008a.75.75 0 0 0 .75.75H15a.75.75 0 0 0 .75-.75V9.75a.75.75 0 0 0-.75-.75h-.008Z" clip-rule="evenodd" /></svg>
+                                </div>
+                                <div class="rating">
+                                    <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                                </div>
+                                <p class="testimonial-text">
+                                    "Un rêve éveillé ! Grâce à toute l'équipe d'Ever After Events, notre mariage au château a été absolument parfait. Chaque détail a été pensé avec un raffinement incroyable, et nos invités en parlent encore. La tranquillité d'esprit de savoir que tout était géré a rendu cette journée magique."
+                                </p>
+                                <div class="testimonial-author">
+                                    <div class="author-info">
+                                        <h5 class="author-name">Marie & Pierre</h5>
+                                        <span class="author-date">Mariage au Château de Vaux - Septembre 2025</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 2 -->
+                        <div class="testimonial-slide">
+                            <div class="testimonial-card">
+                                <div class="quote-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M4.848 2.771A49.144 49.144 0 0 1 12 2.25c2.43 0 4.817.178 7.152.52 1.978.292 3.348 2.024 3.348 3.97v6.02c0 1.946-1.37 3.678-3.348 3.97a48.901 48.901 0 0 1-3.476.383.75.75 0 0 1-.66-.415l-1.844-3.687a.75.75 0 0 0-1.344 0L10.13 16.71a.75.75 0 0 1-.66.415 48.9 48.9 0 0 1-3.476-.383C4.017 16.45 2.65 14.718 2.65 12.77v-6.02c0-1.946 1.37-3.678 3.348-3.97ZM12 9a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0v-2.5A.75.75 0 0 1 12 9Zm-3.75.75a.75.75 0 0 1 .75-.75h.008a.75.75 0 0 1 .75.75v.008a.75.75 0 0 1-.75.75H9a.75.75 0 0 1-.75-.75v-.008Zm6.008-.75a.75.75 0 0 0-.75.75v.008a.75.75 0 0 0 .75.75H15a.75.75 0 0 0 .75-.75V9.75a.75.75 0 0 0-.75-.75h-.008Z" clip-rule="evenodd" /></svg>
+                                </div>
+                                <div class="rating">
+                                    <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                                </div>
+                                <p class="testimonial-text">
+                                    "Professionnalisme, créativité et écoute attentive. L'équipe a su transformer nos idées parfois floues en une réalité absolument magique sous les arbres. La scénographie forestière avec les guirlandes lumineuses a coupé le souffle à tout le monde. Merci infiniment !"
+                                </p>
+                                <div class="testimonial-author">
+                                    <div class="author-info">
+                                        <h5 class="author-name">Sarah & Thomas</h5>
+                                        <span class="author-date">Mariage Bohème en Forêt - Juin 2025</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 3 -->
+                        <div class="testimonial-slide">
+                            <div class="testimonial-card">
+                                <div class="quote-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M4.848 2.771A49.144 49.144 0 0 1 12 2.25c2.43 0 4.817.178 7.152.52 1.978.292 3.348 2.024 3.348 3.97v6.02c0 1.946-1.37 3.678-3.348 3.97a48.901 48.901 0 0 1-3.476.383.75.75 0 0 1-.66-.415l-1.844-3.687a.75.75 0 0 0-1.344 0L10.13 16.71a.75.75 0 0 1-.66.415 48.9 48.9 0 0 1-3.476-.383C4.017 16.45 2.65 14.718 2.65 12.77v-6.02c0-1.946 1.37-3.678 3.348-3.97ZM12 9a.75.75 0 0 1 .75.75v2.5a.75.75 0 0 1-1.5 0v-2.5A.75.75 0 0 1 12 9Zm-3.75.75a.75.75 0 0 1 .75-.75h.008a.75.75 0 0 1 .75.75v.008a.75.75 0 0 1-.75.75H9a.75.75 0 0 1-.75-.75v-.008Zm6.008-.75a.75.75 0 0 0-.75.75v.008a.75.75 0 0 0 .75.75H15a.75.75 0 0 0 .75-.75V9.75a.75.75 0 0 0-.75-.75h-.008Z" clip-rule="evenodd" /></svg>
+                                </div>
+                                <div class="rating">
+                                    <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                                </div>
+                                <p class="testimonial-text">
+                                    "La formule de coordination du Jour J a été notre meilleure décision. Nous étions sereins, l'équipe a géré chaque imprévu technique de façon totalement invisible. Nous avons pu danser, rire et trinquer avec nos familles sans aucune préoccupation logistique."
+                                </p>
+                                <div class="testimonial-author">
+                                    <div class="author-info">
+                                        <h5 class="author-name">Julie & David</h5>
+                                        <span class="author-date">Mariage au Domaine des Sources - Août 2025</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slider Controls -->
+                    <div class="slider-controls">
+                        <button class="slider-btn prev-btn" id="sliderPrev" aria-label="Témoignage précédent">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
+                        </button>
+                        <div class="slider-dots" id="sliderDots">
+                            <span class="dot active" data-index="0"></span>
+                            <span class="dot" data-index="1"></span>
+                            <span class="dot" data-index="2"></span>
+                        </div>
+                        <button class="slider-btn next-btn" id="sliderNext" aria-label="Témoignage suivant">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 06 Contact Section -->
+        <section id="contact" class="contact-section section-padding">
+            <div class="container">
+                <div class="contact-grid">
+                    <!-- Contact Info -->
+                    <div class="contact-info-wrapper reveal-on-scroll">
+                        <span class="section-tag">Contact</span>
+                        <h2 class="section-title text-light">Commençons à planifier votre journée unique</h2>
+                        <p class="contact-subtitle text-light-muted">
+                            Vous avez un projet de mariage ? Remplissez notre formulaire ou contactez-nous directement. Nous serions ravis de discuter de vos envies autour d'un café.
+                        </p>
+                        
+                        <div class="contact-details">
+                            <div class="contact-detail-item">
+                                <div class="contact-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.387a20.373 20.373 0 0 1-7.147-7.147c-.155-.441.011-.928.387-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" /></svg>
+                                </div>
+                                <div class="contact-text">
+                                    <h3>Téléphone</h3>
+                                    <p><a href="tel:+33123456789">+33 (0)1 23 45 67 89</a></p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-detail-item">
+                                <div class="contact-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" /></svg>
+                                </div>
+                                <div class="contact-text">
+                                    <h3>Email</h3>
+                                    <p><a href="mailto:contact@everafterevents.com">contact@everafterevents.com</a></p>
+                                </div>
+                            </div>
+
+                            <div class="contact-detail-item">
+                                <div class="contact-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25s-7.5-4.108-7.5-11.25A7.5 7.5 0 0 1 19.5 10.5Z" /></svg>
+                                </div>
+                                <div class="contact-text">
+                                    <h3>Notre Bureau</h3>
+                                    <p>15 Place Vendôme, 75001 Paris, France</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Map Mockup -->
+                        <div class="map-container">
+                            <div class="map-placeholder">
+                                <div class="map-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M8.161 2.221a.75.75 0 0 1 .68.083l6.75 4.5a.75.75 0 0 1 .309.62v14.33a.75.75 0 0 1-1.161.625l-6.75-4.5a.75.75 0 0 1-.309-.62V2.846a.75.75 0 0 1 .481-.625Zm7.839 5.867 5.161-3.44a.75.75 0 0 1 1.161.625v14.33a.75.75 0 0 1-1.161.625l-5.161-3.44V8.088Zm-9-.624V21.794l-5.161-3.44a.75.75 0 0 1-.339-.625V3.398a.75.75 0 0 1 1.161-.625l4.339 2.891Z" clip-rule="evenodd" /></svg>
+                                </div>
+                                <span>Carte Interactive — Place Vendôme, Paris</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form Card -->
+                    <div class="contact-form-wrapper reveal-on-scroll delay-1">
+                        <div class="form-card">
+                            <h3 class="form-title">Votre projet de mariage</h3>
+                            <form id="contactForm" novalidate>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="fullName">Nom complet <span class="required">*</span></label>
+                                        <input type="text" id="fullName" name="fullName" placeholder="Ex: Jean Dupont" required>
+                                        <span class="error-message" id="error-fullName">Ce champ est requis</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="email">Adresse email <span class="required">*</span></label>
+                                        <input type="email" id="email" name="email" placeholder="Ex: jean.dupont@email.com" required>
+                                        <span class="error-message" id="error-email">Veuillez entrer une adresse email valide</span>
+                                    </div>
+                                </div>
+
+                                <div class="form-row split">
+                                    <div class="form-group">
+                                        <label for="weddingDate">Date souhaitée</label>
+                                        <input type="date" id="weddingDate" name="weddingDate">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="guestCount">Nombre d'invités estimé</label>
+                                        <input type="number" id="guestCount" name="guestCount" min="0" placeholder="Ex: 120">
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="serviceType">Type de service souhaité</label>
+                                        <select id="serviceType" name="serviceType">
+                                            <option value="">Sélectionnez un service...</option>
+                                            <option value="complete">Organisation Complète</option>
+                                            <option value="coordination">Coordination Jour J</option>
+                                            <option value="design">Design & Scénographie</option>
+                                            <option value="destination">Destination Wedding</option>
+                                            <option value="custom">Autre / Sur-mesure</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="message">Parlez-nous de votre projet <span class="required">*</span></label>
+                                        <textarea id="message" name="message" rows="5" placeholder="Dites-nous-en plus sur vos envies, le style, le lieu rêvé..." required></textarea>
+                                        <span class="error-message" id="error-message">Veuillez rédiger un court message</span>
+                                    </div>
+                                </div>
+
+                                <div class="form-submit">
+                                    <button type="submit" class="btn btn-primary btn-full" id="submitBtn">
+                                        <span>Envoyer le projet</span>
+                                        <svg class="spinner" viewBox="0 0 50 50">
+                                            <circle class="path" cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </form>
+                            
+                            <!-- Success Message -->
+                            <div class="form-success" id="formSuccess">
+                                <div class="success-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                                </div>
+                                <h4>Message envoyé avec succès !</h4>
+                                <p>Merci pour votre confiance. Notre équipe vous recontactera sous 24h à 48h pour planifier notre premier échange.</p>
+                                <button class="btn btn-outline btn-sm" id="resetFormBtn">Envoyer une nouvelle demande</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <a href="#hero" class="logo">
+                    <span class="logo-text">Ever After</span>
+                    <span class="logo-subtext">Events</span>
+                </a>
+                <p class="footer-desc">
+                    Créateurs de moments éternels et de célébrations uniques. Luxe, raffinement et sérénité.
+                </p>
+                <div class="social-links">
+                    <a href="#" aria-label="Instagram">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37zM17.5 6.5h.01"/></svg>
+                    </a>
+                    <a href="#" aria-label="Pinterest">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 22a9 9 0 0 1-2.36-6.19c0-3.32 2.1-7.1 5.92-7.1 1.76 0 3.32.9 3.32 3.03 0 3.12-1.37 5.75-3.37 5.75-.68 0-1.17-.44-.98-1.15l1-3.66c.29-1.07-.3-1.66-1.3-1.66-1.56 0-2.8 1.95-2.8 4.49 0 1.5.8 2.29.8 2.29s-.27 1.07-.59 2.24A10.37 10.37 0 0 1 8 22Z"/><circle cx="12" cy="12" r="10" stroke="currentColor"/></svg>
+                    </a>
+                    <a href="#" aria-label="Facebook">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="#hero">Accueil</a></li>
+                    <li><a href="#a-propos">À propos</a></li>
+                    <li><a href="#services">Nos services</a></li>
+                    <li><a href="#galerie">Galerie</a></li>
+                    <li><a href="#avis">Témoignages</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-hours">
+                <h4>Horaires d'ouverture</h4>
+                <p>Lundi - Vendredi : 09:00 – 19:00</p>
+                <p>Samedi : 10:00 – 17:00 (Sur rendez-vous uniquement)</p>
+                <p>Dimanche : Fermé</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container footer-bottom-container">
+                <p>&copy; 2026 Ever After Events. Tous droits réservés. Scénographie by MSK.</p>
+                <div class="footer-legal">
+                    <a href="#">Mentions Légales</a>
+                    <a href="#">Politique de Confidentialité</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Main JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
