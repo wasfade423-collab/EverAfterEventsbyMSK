@@ -27,8 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     
     window.addEventListener('scroll', handleHeaderScroll);
-    handleHeaderScroll(); // Initial check
-
+    handleHeaderScroll(); 
 
     /* ==========================================================================
        02. Mobile Navigation Toggle
@@ -45,7 +44,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     menuToggle.addEventListener('click', toggleMenu);
 
-    // Close menu when clicking a mobile nav link
     mobileLinks.forEach(link => {
         link.addEventListener('click', () => {
             menuToggle.classList.remove('open');
@@ -54,7 +52,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-
     /* ==========================================================================
        03. Active Navigation Link Highlighting on Scroll
        ========================================================================== */
@@ -62,8 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelectorAll('.nav-link');
 
     const highlightNavLink = () => {
-        let scrollPosition = window.scrollY + 200; // Offset for header height
-
+        let scrollPosition = window.scrollY + 200; 
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
             const sectionHeight = section.offsetHeight;
@@ -83,7 +79,6 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', highlightNavLink);
     highlightNavLink();
 
-
     /* ==========================================================================
        04. Reveal Elements on Scroll
        ========================================================================== */
@@ -91,17 +86,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const revealElement = (element) => {
         element.classList.add('revealed');
-    };
-
-    const revealOnScroll = () => {
-        const triggerPoint = window.innerHeight * 0.9;
-
-        revealElements.forEach(element => {
-            const rect = element.getBoundingClientRect();
-            if (rect.top < triggerPoint) {
-                revealElement(element);
-            }
-        });
     };
 
     if ('IntersectionObserver' in window) {
@@ -112,21 +96,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     observer.unobserve(entry.target);
                 }
             });
-        }, {
-            threshold: 0.15,
-            rootMargin: '0px 0px -50px 0px'
-        });
+        }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
 
-        revealElements.forEach(element => {
-            revealObserver.observe(element);
-        });
-    } else {
-        revealOnScroll();
+        revealElements.forEach(element => revealObserver.observe(element));
     }
-
-    window.addEventListener('scroll', revealOnScroll, { passive: true });
-    window.addEventListener('load', revealOnScroll);
-
 
     /* ==========================================================================
        05. Gallery Filter System
@@ -136,15 +109,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     filterButtons.forEach(btn => {
         btn.addEventListener('click', () => {
-            // Remove active from all buttons and add to clicked
             filterButtons.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
-
             const filterValue = btn.getAttribute('data-filter');
 
             galleryItems.forEach(item => {
                 const category = item.getAttribute('data-category');
-                
                 if (filterValue === 'all' || category === filterValue) {
                     item.classList.remove('hide');
                 } else {
@@ -154,287 +124,53 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-
     /* ==========================================================================
-       06. Lightbox Modal for Gallery
-       ========================================================================== */
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightboxImg');
-    const lightboxCaption = document.getElementById('lightboxCaption');
-    const lightboxClose = document.getElementById('lightboxClose');
-    const lightboxPrev = document.getElementById('lightboxPrev');
-    const lightboxNext = document.getElementById('lightboxNext');
-
-    let currentImages = []; // Stores images currently visible (filtered)
-    let currentImageIndex = 0;
-
-    const updateLightboxImage = () => {
-        const targetImg = currentImages[currentImageIndex].querySelector('img');
-        const targetTitle = currentImages[currentImageIndex].querySelector('.gallery-title').textContent;
-        const targetCat = currentImages[currentImageIndex].querySelector('.gallery-category').textContent;
-        
-        lightboxImg.src = targetImg.src;
-        lightboxImg.alt = targetImg.alt;
-        lightboxCaption.innerHTML = `${targetTitle} <span style="font-size:1rem; display:block; color:#c5a880; font-family:'Plus Jakarta Sans'; font-weight:600; text-transform:uppercase; letter-spacing:0.1em; margin-top:5px;">${targetCat}</span>`;
-    };
-
-    const openLightbox = (index) => {
-        // Collect only visible images in order
-        currentImages = Array.from(galleryItems).filter(item => !item.classList.contains('hide'));
-        currentImageIndex = currentImages.indexOf(galleryItems[index]);
-        
-        // If the clicked item is hidden, get its index in the filtered array or default to 0
-        if (currentImageIndex === -1) {
-            currentImageIndex = 0;
-        }
-
-        updateLightboxImage();
-        lightbox.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    };
-
-    const closeLightbox = () => {
-        lightbox.classList.remove('active');
-        document.body.style.overflow = '';
-    };
-
-    const showNextImage = () => {
-        currentImageIndex = (currentImageIndex + 1) % currentImages.length;
-        updateLightboxImage();
-    };
-
-    const showPrevImage = () => {
-        currentImageIndex = (currentImageIndex - 1 + currentImages.length) % currentImages.length;
-        updateLightboxImage();
-    };
-
-    // Attach click events to gallery items
-    galleryItems.forEach((item, index) => {
-        item.addEventListener('click', () => {
-            openLightbox(index);
-        });
-    });
-
-    // Control events
-    lightboxClose.addEventListener('click', closeLightbox);
-    lightboxNext.addEventListener('click', showNextImage);
-    lightboxPrev.addEventListener('click', showPrevImage);
-
-    // Close lightbox on clicking outside image content
-    lightbox.addEventListener('click', (e) => {
-        if (e.target === lightbox) {
-            closeLightbox();
-        }
-    });
-
-    // Keyboard controls
-    document.addEventListener('keydown', (e) => {
-        if (!lightbox.classList.contains('active')) return;
-        
-        if (e.key === 'Escape') {
-            closeLightbox();
-        } else if (e.key === 'ArrowRight') {
-            showNextImage();
-        } else if (e.key === 'ArrowLeft') {
-            showPrevImage();
-        }
-    });
-
-
-    /* ==========================================================================
-       07. Testimonials Slider
-       ========================================================================== */
-    const testimonialSlides = document.querySelectorAll('.testimonial-slide');
-    const dotElements = document.querySelectorAll('.slider-dots .dot');
-    const sliderPrev = document.getElementById('sliderPrev');
-    const sliderNext = document.getElementById('sliderNext');
-
-    let currentSlideIndex = 0;
-    let slideInterval;
-
-    const showSlide = (index) => {
-        testimonialSlides.forEach(slide => slide.classList.remove('active'));
-        dotElements.forEach(dot => dot.classList.remove('active'));
-
-        currentSlideIndex = (index + testimonialSlides.length) % testimonialSlides.length;
-        
-        testimonialSlides[currentSlideIndex].classList.add('active');
-        dotElements[currentSlideIndex].classList.add('active');
-    };
-
-    const nextSlide = () => {
-        showSlide(currentSlideIndex + 1);
-    };
-
-    const prevSlide = () => {
-        showSlide(currentSlideIndex - 1);
-    };
-
-    // Reset slide timer on manual action
-    const resetSlideTimer = () => {
-        clearInterval(slideInterval);
-        slideInterval = setInterval(nextSlide, 6000);
-    };
-
-    sliderNext.addEventListener('click', () => {
-        nextSlide();
-        resetSlideTimer();
-    });
-
-    sliderPrev.addEventListener('click', () => {
-        prevSlide();
-        resetSlideTimer();
-    });
-
-    dotElements.forEach(dot => {
-        dot.addEventListener('click', (e) => {
-            const index = parseInt(e.target.getAttribute('data-index'));
-            showSlide(index);
-            resetSlideTimer();
-        });
-    });
-
-    // Start auto slider
-    slideInterval = setInterval(nextSlide, 6000);
-
-
-    /* ==========================================================================
-       08. Contact Form Validation & Mock Submit
+       06. Contact Form Basic Mock Submit
        ========================================================================== */
     const contactForm = document.getElementById('contactForm');
     const submitBtn = document.getElementById('submitBtn');
-    const formSuccess = document.getElementById('formSuccess');
-    const resetFormBtn = document.getElementById('resetFormBtn');
 
-    // Input elements
-    const fullNameInput = document.getElementById('fullName');
-    const emailInput = document.getElementById('email');
-    const messageInput = document.getElementById('message');
-
-    // Helper: validate email address format
-    const isValidEmail = (email) => {
-        const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        return re.test(String(email).toLowerCase());
-    };
-
-    // Clear error class on input changes
-    const inputs = [fullNameInput, emailInput, messageInput];
-    inputs.forEach(input => {
-        input.addEventListener('input', () => {
-            input.parentElement.classList.remove('has-error');
-        });
-    });
-
-    const validateForm = () => {
-        let isFormValid = true;
-
-        // Name Validation
-        if (!fullNameInput.value.trim()) {
-            fullNameInput.parentElement.classList.add('has-error');
-            isFormValid = false;
-        } else {
-            fullNameInput.parentElement.classList.remove('has-error');
-        }
-
-        // Email Validation
-        if (!emailInput.value.trim() || !isValidEmail(emailInput.value.trim())) {
-            emailInput.parentElement.classList.add('has-error');
-            isFormValid = false;
-        } else {
-            emailInput.parentElement.classList.remove('has-error');
-        }
-
-        // Message Validation
-        if (!messageInput.value.trim()) {
-            messageInput.parentElement.classList.add('has-error');
-            isFormValid = false;
-        } else {
-            messageInput.parentElement.classList.remove('has-error');
-        }
-
-        return isFormValid;
-    };
-
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-
-        // Run validation
-        if (!validateForm()) {
-            return;
-        }
-
-        // Show loading state
-        submitBtn.disabled = true;
-        submitBtn.classList.add('submitting');
-
-        // Mock Server Delay (1.5 seconds)
-        setTimeout(() => {
-            // Show Success Overlay
-            formSuccess.classList.add('active');
+    if(contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const btnText = submitBtn.querySelector('span');
+            btnText.textContent = "Envoi en cours...";
             
-            // Reset loading state
-            submitBtn.disabled = false;
-            submitBtn.classList.remove('submitting');
-            contactForm.reset();
-        }, 1500);
-    });
-
-    resetFormBtn.addEventListener('click', () => {
-        formSuccess.classList.remove('active');
-    });
-
+            setTimeout(() => {
+                btnText.textContent = "Message Envoyé !";
+                contactForm.reset();
+                setTimeout(() => btnText.textContent = "Envoyer le projet", 3000);
+            }, 1500);
+        });
+    }
 
     /* ==========================================================================
-       09. Assistant de planning interactif
+       07. Assistant de questions fréquentes (Refait selon votre demande)
        ========================================================================== */
     const assistantFab = document.getElementById('assistantFab');
     const assistantModal = document.getElementById('assistantModal');
     const closeAssistant = document.getElementById('closeAssistant');
-    const assistantGuestRange = document.getElementById('assistantGuestRange');
-    const assistantGuestValue = document.getElementById('assistantGuestValue');
-    const assistantEstimateBtn = document.getElementById('assistantEstimateBtn');
-    const assistantResult = document.getElementById('assistantResult');
-    const assistantIntroText = document.getElementById('assistantIntroText');
     const assistantOptions = document.querySelectorAll('.assistant-option');
+    const assistantAnswerText = document.getElementById('assistantAnswerText');
 
-    let selectedAssistantStyle = 'traditional';
-
-    const updateAssistantSelection = () => {
-        assistantOptions.forEach(button => {
-            const isActive = button.dataset.assistantOption === selectedAssistantStyle;
-            button.classList.toggle('active', isActive);
-        });
+    // Réponses définies pour les questions clés
+    const faqResponses = {
+        'q1': "Nos prestations débutent à partir de 1 000 000 FCFA pour la coordination, et 2 500 000 FCFA pour l'organisation complète. Chaque mariage étant unique, nous réalisons des devis sur-mesure détaillés.",
+        'q2': "Basés à Cotonou au Bénin, nous organisons des mariages d'exception partout en Afrique (Bénin, Côte d'Ivoire, Sénégal...) ainsi qu'à l'international pour nos formules 'Destination Wedding'.",
+        'q3': "Remplissez le formulaire dans la section Contact de notre site. Notre équipe vous recontactera sous 24h à 48h pour planifier un premier rendez-vous de découverte de votre projet."
     };
 
-    assistantOptions.forEach(button => {
-        button.addEventListener('click', () => {
-            selectedAssistantStyle = button.dataset.assistantOption;
-            updateAssistantSelection();
-
-            const messages = {
-                traditional: 'Votre mariage traditionnel mérite une scénographie élégante et raffinée, avec un grand soin porté à la reception et au déroulé de la journée.',
-                civil: 'Pour un mariage civil, nous recommandons un rythme sobre, lumineux et parfaitement orchestré pour une ambiance chaleureuse et fluide.',
-                destination: 'Pour une destination wedding, nous privilégions une organisation sans stress avec des prestataires locaux et une coordination internationale.'
-            };
-
-            assistantIntroText.textContent = messages[selectedAssistantStyle];
-        });
-    });
-
-    assistantGuestRange.addEventListener('input', () => {
-        assistantGuestValue.textContent = assistantGuestRange.value;
-    });
-
     const openAssistantModal = () => {
-        assistantModal.style.display = 'flex';
         assistantModal.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
     };
 
     const closeAssistantModal = () => {
-        assistantModal.style.display = 'none';
         assistantModal.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
+        // Reset state
+        assistantOptions.forEach(btn => btn.classList.remove('active'));
+        assistantAnswerText.textContent = "Bonjour, cliquez sur une question ci-dessus pour que je puisse vous éclairer.";
     };
 
     assistantFab.addEventListener('click', openAssistantModal);
@@ -442,54 +178,126 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('[data-close-assistant]').addEventListener('click', closeAssistantModal);
 
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && assistantModal.style.display === 'flex') {
+        if (e.key === 'Escape' && assistantModal.getAttribute('aria-hidden') === 'false') {
             closeAssistantModal();
         }
     });
 
-    assistantEstimateBtn.addEventListener('click', () => {
-        const guests = Number(assistantGuestRange.value);
-        const baseBudgets = {
-            traditional: 14000,
-            civil: 9000,
-            destination: 22000
-        };
-
-        const recommendation = {
-            traditional: {
-                title: 'Formule Prestige',
-                description: 'Organisation complète avec scénographie florale et suivi de chaque détail jusqu’au grand soir.'
-            },
-            civil: {
-                title: 'Formule Élégante',
-                description: 'Coordination soignée et décoration minimaliste pour une cérémonie lumineuse et parfaitement organisée.'
-            },
-            destination: {
-                title: 'Formule À l’international',
-                description: 'Logistique internationale, sélection de prestataires locaux et planification sur mesure.'
-            }
-        };
-
-        const estimatedBudget = baseBudgets[selectedAssistantStyle] + guests * 140;
-        const currency = new Intl.NumberFormat('fr-FR', {
-            style: 'currency',
-            currency: 'EUR',
-            maximumFractionDigits: 0
+    assistantOptions.forEach(button => {
+        button.addEventListener('click', () => {
+            assistantOptions.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            
+            const questionKey = button.dataset.question;
+            assistantAnswerText.textContent = faqResponses[questionKey];
         });
-
-        assistantResult.innerHTML = `
-            <div class="rounded-2xl border border-[#ebdcd0] bg-[#fdfcfb] p-4">
-                <p class="text-sm font-semibold uppercase tracking-[0.2em] text-[#aa895d]">Suggestion</p>
-                <h4 class="mt-2 text-xl font-semibold text-[#1c1f22]">${recommendation[selectedAssistantStyle].title}</h4>
-                <p class="mt-2 text-sm leading-7 text-[#6e757c]">${recommendation[selectedAssistantStyle].description}</p>
-                <div class="mt-4 flex items-center justify-between border-t border-[#ebdcd0] pt-3">
-                    <span class="text-sm font-semibold uppercase tracking-[0.2em] text-[#6e757c]">Budget estimé</span>
-                    <span class="text-lg font-semibold text-[#aa895d]">${currency.format(estimatedBudget)}</span>
-                </div>
-            </div>
-        `;
     });
 
-    updateAssistantSelection();
+});
 
+
+document.addEventListener('DOMContentLoaded', () => {
+    const chatToggleBtn = document.getElementById('chatToggleBtn');
+    const chatWindow = document.getElementById('chatWindow');
+    const closeChatBtn = document.getElementById('closeChatBtn');
+    const sendBtn = document.getElementById('sendBtn');
+    const chatInput = document.getElementById('chatInput');
+    const chatMessages = document.getElementById('chatMessages');
+
+    // Ouvre ou ferme la fenêtre
+    chatToggleBtn.addEventListener('click', () => {
+        chatWindow.classList.remove('hidden');
+        chatToggleBtn.style.display = 'none';
+    });
+
+    closeChatBtn.addEventListener('click', () => {
+        chatWindow.classList.add('hidden');
+        chatToggleBtn.style.display = 'block';
+    });
+
+    // Fonction d'ajout de message à l'UI
+    function addMessage(text, sender, id = null) {
+        if (!text.trim()) return;
+        const messageDiv = document.createElement('div');
+        messageDiv.classList.add('message', sender);
+        if (id) messageDiv.id = id;
+        messageDiv.textContent = text;
+        chatMessages.appendChild(messageDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    // --- LOGIQUE IA AVEC GROQ ---
+    async function getAiResponse(userMessage) {
+        // Remplace par ta vraie clé API Groq
+        const apiKey = "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"; 
+        const url = "https://api.groq.com/openai/v1/chat/completions";
+
+        // Définition du contexte et des limites du chatbot
+        const systemPrompt = `Tu es l'assistant virtuel de 'Ever After Events', une agence d'organisation de mariages de luxe. 
+        Ton rôle est de répondre aux questions des clients sur nos services, de manière professionnelle, chaleureuse et concise.
+        RÈGLE STRICTE : Si la question de l'utilisateur n'a absolument AUCUN rapport avec l'organisation de mariage, l'événementiel, ou notre agence, tu dois poliment lui rappeler que tu es l'assistant d'une agence de mariage et lui demander comment tu peux l'aider à planifier son événement. Ne réponds pas aux requêtes hors sujet.`;
+
+        const payload = {
+            model: "llama-3.3-70b-versatile",
+            messages: [
+                { role: "system", content: systemPrompt },
+                { role: "user", content: userMessage }
+            ],
+            temperature: 0.7,
+            max_tokens: 500
+        };
+
+        try {
+            const response = await fetch(url, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${apiKey}`
+                },
+                body: JSON.stringify(payload)
+            });
+
+            if (!response.ok) {
+                console.error(`Erreur HTTP: ${response.status}`);
+                return "Désolé, je rencontre des difficultés techniques. Veuillez réessayer plus tard.";
+            }
+
+            const data = await response.json();
+            return data.choices[0].message.content || "Désolé, je n'ai pas pu générer de réponse.";
+
+        } catch (error) {
+            console.error("Erreur API:", error);
+            return "Erreur de connexion. Vérifiez votre réseau.";
+        }
+    }
+
+    // Gestion de l'envoi
+    async function handleSend() {
+        const userText = chatInput.value;
+        if (userText.trim() === '') return;
+
+        // 1. Afficher le message de l'utilisateur
+        addMessage(userText, 'user');
+        chatInput.value = '';
+
+        // 2. Afficher un indicateur de chargement
+        const loadingId = 'loading-' + Date.now();
+        addMessage("Rédaction en cours...", 'bot', loadingId);
+
+        // 3. Récupérer la réponse de l'IA
+        const aiResponse = await getAiResponse(userText);
+
+        // 4. Supprimer le chargement et afficher la vraie réponse
+        const loadingMsg = document.getElementById(loadingId);
+        if (loadingMsg) loadingMsg.remove();
+        addMessage(aiResponse, 'bot');
+    }
+
+    // Déclencheurs d'envoi
+    sendBtn.addEventListener('click', handleSend);
+    chatInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            handleSend();
+        }
+    });
 });
